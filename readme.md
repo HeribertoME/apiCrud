@@ -11,7 +11,7 @@ Endpoints:
 
   /users
 
-* **Méodo:**
+* **Método:**
 
   `GET`
   
@@ -80,7 +80,7 @@ Endpoints:
 
   /users/{user}
 
-* **Méodo:**
+* **Método:**
 
   `GET`
   
@@ -138,7 +138,7 @@ Endpoints:
 
   /users
 
-* **Méodo:**
+* **Método:**
 
   `POST`
   
@@ -213,7 +213,7 @@ Endpoints:
 
   /users/{user}
 
-* **Méodo:**
+* **Método:**
 
   `PUT`
   
@@ -284,9 +284,9 @@ Endpoints:
 
   /users/{user}
 
-* **Méodo:**
+* **Método:**
 
-  `DELTE`
+  `DELETE`
   
 *  **Parametros URL**
 	
