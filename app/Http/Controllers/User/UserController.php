@@ -70,7 +70,6 @@ class UserController extends ApiController
         $rules = [
             'email' => 'email|unique:users,email,' . $user->id,
             'password' => 'min:6|confirmed',
-            'genre' => 'required',
             'admin' => 'in:' . User::USUARIO_ADMINISTRADOR . ',' . User::USUARIO_REGULAR,
         ];
 
@@ -99,7 +98,7 @@ class UserController extends ApiController
         }
 
         if (!$user->isDirty()) {
-            return $this->errorResponse('Se debe especificar al menos un valor doferente para actualizar',  422);
+            return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar',  422);
         }
 
         $user->save();
