@@ -315,10 +315,7 @@ No aplica
 }`
  
 * **Error Response:**
-  * **Código:** 422 UNPROCESSABLE ENTRY <br />
-    **Contenido:** 
-     
-     * **Código:** 404 NOT FOUND <br />
+  * **Código:** 404 NOT FOUND <br />         
     **Contenido:** 
     `{
 	"error": "No existe ninguna instancia de user con el id especificado",
