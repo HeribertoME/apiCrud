@@ -196,7 +196,7 @@ Endpoints:
 	"code": 422
 }`
      
-     Ó
+     O
 
   * **Código:** 401 UNAUTHENTICATED <br />
     **Contenido:**
@@ -254,7 +254,7 @@ Endpoints:
   * **Código:** 422 UNPROCESSABLE ENTRY <br />
     **Contenido:** 
     `{
-	"error": "Se debe especificar al menos un valor doferente para actualizar",
+	"error": "Se debe especificar al menos un valor diferente para actualizar",
 	"code": 422
 }`
      
@@ -274,4 +274,62 @@ Endpoints:
     `{
 	      "error": "No autenticado.",
 	      "code": 401
-     }`
+    }`
+
+**Elimina un usuario**
+----
+  Retorna data con el usuario actualizado.
+
+* **URL**
+
+  /users/{user}
+
+* **Méodo:**
+
+  `DELTE`
+  
+*  **Parametros URL**
+	
+  **Required:**
+ 
+   `user=[integer]`
+  
+* **Parametros Cuerpo**
+No aplica
+
+* **Success Response:**
+
+  * **Código:** 200 OK <br />
+    **Contenido:** 
+    `	"data": {
+		"id": 1,
+		"name": "Shirley gaylord i",
+		"email": "federico.ledner@example.net",
+		"genre": "Man",
+		"verified": "1",
+		"admin": "false",
+		"created_at": "2018-05-22 19:01:20",
+		"updated_at": "2018-05-22 19:03:37",
+		"deleted_at": "2018-05-22 19:03:37"
+	}
+}`
+ 
+* **Error Response:**
+  * **Código:** 422 UNPROCESSABLE ENTRY <br />
+    **Contenido:** 
+     
+     * **Código:** 404 NOT FOUND <br />
+    **Contenido:** 
+    `{
+	"error": "No existe ninguna instancia de user con el id especificado",
+	"code": 404
+}`
+
+	Ó
+     
+  * **Código:** 401 UNAUTHENTICATED <br />
+    **Contenido:**
+    `{
+	      "error": "No autenticado.",
+	      "code": 401
+    }`
