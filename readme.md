@@ -25,7 +25,7 @@ Endpoints:
 
 * **Success Response:**
 
-  * **Código:** 201 <br />
+  * **Código:** 200 OK <br />
     **Contenido:** 
     `{
 	    "data": [
@@ -65,7 +65,7 @@ Endpoints:
      
      Ó
 
-  * **Código:** 401 UNPROCESSABLE ENTRY <br />
+  * **Código:** 401 UNAUTHENTICATED <br />
     **Contenido:**
     `{
 	      "error": "No autenticado.",
@@ -96,7 +96,7 @@ Endpoints:
 
 * **Success Response:**
 
-  * **Código:** 201 <br />
+  * **Código:** 200 OK <br />
     **Contenido:** 
     `{
 	"data": {
@@ -122,7 +122,83 @@ Endpoints:
      
      Ó
 
-  * **Código:** 401 UNPROCESSABLE ENTRY <br />
+  * **Código:** 401 UNAUTHENTICATED <br />
+    **Contenido:**
+    `{
+	      "error": "No autenticado.",
+	      "code": 401
+     }`
+
+
+**Crea un usuario**
+----
+  Retorna data con el usuario creado.
+
+* **URL**
+
+  /users
+
+* **Méodo:**
+
+  `POST`
+  
+*  **Parametros URL**
+	
+  No aplica
+  
+* **Parametros Cuerpo**
+  
+  **Required:**
+ 
+   `{
+	"name":"User name",
+	"email":"email@user.com",
+	"password":"secret",
+	"password_confirmation":"secret",
+	"genre":"man"
+}`
+
+* **Success Response:**
+
+  * **Código:** 201 CREATED <br />
+    **Contenido:** 
+    `{
+	"data": {
+		"name": "User name",
+		"email": "email@user.com",
+		"genre": "Man",
+		"verified": "0",
+		"admin": "false",
+		"updated_at": "2018-05-22 19:32:50",
+		"created_at": "2018-05-22 19:32:50",
+		"id": 11
+	}
+}`
+ 
+* **Error Response:**
+  * **Código:** 422 UNPROCESSABLE ENTRY <br />
+    **Contenido:** 
+    `{
+	"error": {
+		"name": [
+			"The name field is required."
+		],
+		"email": [
+			"The email field is required."
+		],
+		"password": [
+			"The password field is required."
+		],
+		"genre": [
+			"The genre field is required."
+		]
+	},
+	"code": 422
+}`
+     
+     Ó
+
+  * **Código:** 401 UNAUTHENTICATED <br />
     **Contenido:**
     `{
 	      "error": "No autenticado.",
