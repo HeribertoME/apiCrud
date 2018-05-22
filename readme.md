@@ -78,7 +78,7 @@ Endpoints:
 
 * **URL**
 
-  /users{user}
+  /users/{user}
 
 * **Méodo:**
 
@@ -198,6 +198,77 @@ Endpoints:
      
      Ó
 
+  * **Código:** 401 UNAUTHENTICATED <br />
+    **Contenido:**
+    `{
+	      "error": "No autenticado.",
+	      "code": 401
+     }`
+     
+**Actualiza un usuario**
+----
+  Retorna data con el usuario actualizado.
+
+* **URL**
+
+  /users/{user}
+
+* **Méodo:**
+
+  `PUT`
+  
+*  **Parametros URL**
+	
+  **Required:**
+ 
+   `user=[integer]`
+  
+* **Parametros Cuerpo**
+
+   `{
+	"name":"User name",
+	"email":"email@user.com",
+	"password":"secret",
+	"password_confirmation":"secret",
+	"genre":"man"
+}`
+
+* **Success Response:**
+
+  * **Código:** 200 OK <br />
+    **Contenido:** 
+    `{
+	"data": {
+		"name": "User name",
+		"email": "email@user.com",
+		"genre": "Man",
+		"verified": "0",
+		"admin": "false",
+		"updated_at": "2018-05-22 19:32:50",
+		"created_at": "2018-05-22 19:32:50",
+		"id": 11
+	}
+}`
+ 
+* **Error Response:**
+  * **Código:** 422 UNPROCESSABLE ENTRY <br />
+    **Contenido:** 
+    `{
+	"error": "Se debe especificar al menos un valor doferente para actualizar",
+	"code": 422
+}`
+     
+	Ó
+     
+     * **Código:** 404 NOT FOUND <br />
+    **Contenido:** 
+    `{
+	"error": "No existe ninguna instancia de user con el id especificado",
+	"code": 404
+}`
+
+	Ó
+     
   * **Código:** 401 UNAUTHENTICATED <br />
     **Contenido:**
     `{
