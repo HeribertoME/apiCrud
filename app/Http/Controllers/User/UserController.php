@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\ApiController;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends ApiController
 {
@@ -27,14 +28,16 @@ class UserController extends ApiController
      */
     public function store(Request $request)
     {
-        $rules = [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'genre' => 'required'
-        ];
+        $validation = Validator::make($request->all(), [
+            'name'      => 'required',
+            'genre'    => 'required',
+            'email'     => 'required|unique:users|email|max:191',
+            'password'  => 'required|min:8|confirmed'
+        ]);
 
-        $this->validate($request, $rules);
+        if ($validation->fails()) {
+            return $this->errorResponse($validation->errors()->first(), 422);
+        }
 
         $campos = $request->all();
         $campos['password'] = bcrypt($request->password);
